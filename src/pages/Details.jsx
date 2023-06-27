@@ -128,50 +128,56 @@ export default function Details() {
         </div>
       </div>
 
-      <div className="mt-6 flow-root">
-        <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-          <div className="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
-            <div className="overflow-hidden shadow ring-1 ring-black ring-opacity-5 sm:rounded-lg">
-              <table className="min-w-full divide-y divide-gray-300">
-                <thead className="bg-gray-50">
-                  <tr>
-                    <th scope="col" className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">
-                      Name
-                    </th>
-                    <th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
-                      Quantity
-                    </th>
-                    <th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
-                      Price
-                    </th>
-                    <th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
-                      Inline Total
-                    </th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-gray-200 bg-white">
-                  {items.map((item) => (
-                    <tr key={item.id}>
-                      <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">{capitalize(item.name)}</td>
-                      <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{item.quantity}</td>
-                      <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{item.price.toLocaleString("en-DK")} kr.</td>
-                      <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{(item.price * item.quantity).toLocaleString("en-DK")} kr.</td>
+      {items.length > 0 ? (
+        <div className="mt-6 flow-root">
+          <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+            <div className="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
+              <div className="overflow-hidden shadow ring-1 ring-black ring-opacity-5 sm:rounded-lg">
+                <table className="min-w-full divide-y divide-gray-300">
+                  <thead className="bg-gray-50">
+                    <tr>
+                      <th scope="col" className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">
+                        Name
+                      </th>
+                      <th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
+                        Quantity
+                      </th>
+                      <th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
+                        Price
+                      </th>
+                      <th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
+                        Inline Total
+                      </th>
                     </tr>
-                  ))}
-                  <tr className="bg-gray-50">
-                    <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">Total incl. VAT</td>
-                    <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500"></td>
-                    <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500 font-bold"></td>
-                    <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-900 font-semibold">
-                      {items.reduce((acc, item) => acc + item.quantity * item.price, 0).toLocaleString("en-DK")} kr.
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+                  </thead>
+                  <tbody className="divide-y divide-gray-200 bg-white">
+                    {items.map((item) => (
+                      <tr key={item.id}>
+                        <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">{capitalize(item.name)}</td>
+                        <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{item.quantity}</td>
+                        <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{item.price.toLocaleString("en-DK")} kr.</td>
+                        <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{(item.price * item.quantity).toLocaleString("en-DK")} kr.</td>
+                      </tr>
+                    ))}
+                    <tr className="bg-gray-50">
+                      <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">Total incl. VAT</td>
+                      <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500"></td>
+                      <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500 font-bold"></td>
+                      <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-900 font-semibold">
+                        {items.reduce((acc, item) => acc + item.quantity * item.price, 0).toLocaleString("en-DK")} kr.
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      ) : (
+        <div className="mt-6">
+          <p className="text-gray-500">No items added to this invoice.</p>
+        </div>
+      )}
     </div>
   );
 }

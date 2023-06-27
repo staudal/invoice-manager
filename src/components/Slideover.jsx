@@ -37,8 +37,19 @@ export default function Slideover({ handleSubmit, form, setForm, open, setOpen, 
     const { name, value } = e.target;
 
     if (name === "quantity" || name === "price") {
-      // remove . from the value and convert it to a number
-      const number = Number(value.replace(".", ""));
+      // remove all periods
+      let removed = "";
+
+      for (let i = 0; i < value.length; i++) {
+        removed += value[i] === "." ? "" : value[i];
+      }
+
+      // replace commas with periods
+      const replaced = removed.replace(",", ".");
+
+      // turn into a float
+      const number = parseFloat(replaced);
+
       const list = [...itemList];
       list[index][name] = number;
       setItemList(list);
@@ -278,8 +289,6 @@ export default function Slideover({ handleSubmit, form, setForm, open, setOpen, 
                                         decimalSeparator=","
                                         thousandSeparator="."
                                         decimalScale={2}
-                                        max={99999}
-                                        maxLength={7}
                                       />
                                     </div>
                                     <div className="flex-1 min-w-0">
@@ -294,8 +303,6 @@ export default function Slideover({ handleSubmit, form, setForm, open, setOpen, 
                                         decimalSeparator=","
                                         thousandSeparator="."
                                         decimalScale={2}
-                                        max={99999}
-                                        maxLength={7}
                                       />
                                     </div>
                                     <div className="flex-1 min-w-0">

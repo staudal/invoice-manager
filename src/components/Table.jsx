@@ -70,7 +70,7 @@ export default function Table({ invoices, deleteInvoice, editInvoice, items, set
                     <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{moment(invoice.due_date).format("DD-MM-YYYY")}</td>
                     <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{capitalizeFirstLetter(invoice.client_name)}</td>
                     <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{getTotal(invoice.id).toLocaleString("en-DK")} kr.</td>
-                    <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{invoice.status}</td>
+                    <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{capitalizeFirstLetter(invoice.status)}</td>
                     <td className="relative whitespace-nowrap py-4 space-x-3 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
                       <button onClick={() => handleSelectInvoice(invoice.id)} className="text-indigo-600 hover:text-indigo-900">
                         View
