@@ -180,7 +180,7 @@ export default function Slideover({ handleSubmit, form, setForm, open, setOpen, 
                                 />
                               </div>
                             </div>
-                            <div className="grid grid-cols-1 space-x-4 sm:grid-cols-2">
+                            <div className="grid grid-cols-1 space-y-4 sm:space-y-0 sm:space-x-4 sm:grid-cols-2">
                               <div>
                                 <label htmlFor="client_zip" className="block text-sm font-medium leading-6 text-gray-900">
                                   Zip code
@@ -214,7 +214,7 @@ export default function Slideover({ handleSubmit, form, setForm, open, setOpen, 
                                 </div>
                               </div>
                             </div>
-                            <div className="grid grid-cols-1 space-x-4 sm:grid-cols-2">
+                            <div className="grid grid-cols-1 space-y-4 sm:space-y-0 sm:space-x-4 sm:grid-cols-2">
                               <div>
                                 <label htmlFor="date" className="block text-sm font-medium leading-6 text-gray-900">
                                   Invoice Date

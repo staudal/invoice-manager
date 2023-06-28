@@ -99,10 +99,8 @@ export default function Dashboard() {
 
   return (
     <>
-      <div className="max-w-4xl m-auto py-6">
-        <Header setOpen={setOpenSlideover} />
-        <Table invoices={invoices} deleteInvoice={deleteInvoice} editInvoice={editInvoice} items={items} setItems={setItems} getItems={getItems} />
-      </div>
+      <Header setOpen={setOpenSlideover} />
+      <Table invoices={invoices} deleteInvoice={deleteInvoice} editInvoice={editInvoice} items={items} setItems={setItems} getItems={getItems} />
       <Slideover
         handleSubmit={generateNewInvoice}
         form={form}
@@ -112,7 +110,6 @@ export default function Dashboard() {
         itemList={itemList}
         setItemList={setItemList}
       />
-      <Toaster />
     </>
   );
 }

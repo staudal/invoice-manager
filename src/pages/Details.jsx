@@ -55,7 +55,7 @@ export default function Details() {
   if (!invoice.id) return null;
 
   return (
-    <div className="max-w-4xl m-auto py-6">
+    <>
       <div className="flex items-center">
         <button
           onClick={() => navigate("/")}
@@ -178,6 +178,6 @@ export default function Details() {
           <p className="text-gray-500">No items added to this invoice.</p>
         </div>
       )}
-    </div>
+    </>
   );
 }
